@@ -70,7 +70,7 @@ public class ImageService {
     private String getPublicUrl(String fileName) {
         return String.format("https://%s.s3.%s.amazonaws.com/%s", bucket, amazonS3.getRegionName(), fileName);
     }
-//asdasd
+//asdasdfghfgh
     public String download() {
         return String.valueOf(amazonS3.getUrl(bucket + "/test", "수정본.jpg"));
     }
