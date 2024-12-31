@@ -1,0 +1,25 @@
+name: docker multi-stage build 2
+
+on:
+  push:
+    branches: [ multi-stage2 ] # 해당 branch에 push 되었을 경우
+
+jobs:
+  docker-build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      # 소스 받기
+      - name: Checkout sources
+        uses: actions/checkout@v4
+
+      # Docker Image 빌드
+      - name: Build the Docker image
+        run: docker build . --file ./docker/Dockerfile --tag ${{ vars.DOCKERHUB_USERNAME }}/${{ vars.DOCKER_IMAGE_TAG_NAME }}:latest
+
+      # Docker 로큰
+      - name: Login to Docker Hub using Access Token
+        run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u ${{ vars.DOCKERHUB_USERNAME }} --password-stdin
+
+      # 이미지 푸시
+      - name: Push the Docker image
+        run: docker push ${{ vars.DOCKERHUB_USERNAME }}/${{ vars.DOCKER_IMAGE_TAG_NAME }}:latest
