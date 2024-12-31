@@ -50,12 +50,13 @@ public class ImageService {
         return uploadList;
     }
 
-    public void uploadtest(MultipartFile multipartFile) throws IOException {
-        String s3FileName = multipartFile.getOriginalFilename();
+    public void uploadtest(TestDto testdto) throws IOException {
+        String s3FileName = testdto.getImages().getOriginalFilename();
         ObjectMetadata objMeta = new ObjectMetadata();
-        objMeta.setContentLength(multipartFile.getInputStream().available());
+        String test =testdto.getId();
+        objMeta.setContentLength(testdto.getImages().getInputStream().available());
 
-        amazonS3.putObject(bucket+"/test", s3FileName, multipartFile.getInputStream(), objMeta);
+        amazonS3.putObject(bucket+"/test", s3FileName, testdto.getImages().getInputStream(), objMeta);
     }
 
     private String getFileExtension(String originalFileName) {
