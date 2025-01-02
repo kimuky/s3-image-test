@@ -31,6 +31,7 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     // MySQL
     implementation 'mysql:mysql-connector-java:8.0.28'
+    runtimeOnly 'com.h2database:h2'
 // JDBC Template
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
     runtimeOnly 'com.mysql:mysql-connector-j'
