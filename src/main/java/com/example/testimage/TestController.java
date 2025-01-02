@@ -20,7 +20,7 @@ public class TestController {
         List<String> uploaded = imageService.upload(multipartFile);
         return uploaded;
     }
-//asdasddfgdfgfghfghasdasd123123asdasdjkljklㅁjhkSDFSDFj456456hkㄴㅇsdfsdfㅁㄴㅇdfgdfg
+//asdasddfgdfgfghfghasdasd123123asdasdjkljklㅁjhkSDFSDFsdfsdfj456456hkㄴㅇsdfsdfㅁㄴㅇdfgdfg
     @PostMapping("/upload-test")
     public Void uploadTestFile(@ModelAttribute TestDto testDto) throws IOException {
         imageService.uploadtest(testDto);
