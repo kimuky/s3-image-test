@@ -1,14 +1,15 @@
 package com.example.testimage;
 
-import lombok.RequiredArgsConstructor;
+import java.io.IOException;
+import java.util.List;
+
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
-import java.util.List;
+import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @RestController
@@ -20,7 +21,7 @@ public class TestController {
         List<String> uploaded = imageService.upload(multipartFile);
         return uploaded;
     }
-//asdasddfgdfgfghfghasdasd123123asdasdjkljklㅁjhkSDFSDFsdfsdfj456456hfghfghkㄴㅇsdfsdfㅁㄴㅇdfgdfg
+//asdasddfgdfgfghfghasdasd123123asdasdjkljklㅁjhkSDFsdSDFsdfsdfj456456hfghfghkㄴㅇsdfsdfㅁㄴㅇdfgdfg
     @PostMapping("/upload-test")
     public Void uploadTestFile(@ModelAttribute TestDto testDto) throws IOException {
         imageService.uploadtest(testDto);
